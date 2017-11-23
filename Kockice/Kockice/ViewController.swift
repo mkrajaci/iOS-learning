@@ -13,6 +13,8 @@ class ViewController: UIViewController {
         //deklaracija varijabli
     var randomDiceIndex1 : Int = 0
     var randomDiceIndex2 : Int = 0
+        //deklaracija niza kockica
+    let diceArray = ["dice1", "dice2", "dice3", "dice4", "dice5", "dice6",]
 
         //Lijeva kockica
     @IBOutlet weak var diceImageView1: UIImageView!
@@ -32,12 +34,13 @@ class ViewController: UIViewController {
     @IBAction func rollButtonPressed(_ sender: UIButton) {
         
         //dodjeljivanje slucajnog broja varijabli
-        randomDiceIndex1 = Int(arc4random_uniform(6))
         randomDiceIndex2 = Int(arc4random_uniform(6))
-
-        print(randomDiceIndex1)
-        print(randomDiceIndex2)
-
+        
+        //generiranje slučajnog broja za kockicu
+        diceImageView1.image = UIImage(named: diceArray[Int(arc4random_uniform(6))])
+        
+        //generiranje slučajnog broja kroz varijalbu
+        diceImageView2.image = UIImage(named: diceArray[randomDiceIndex2])
     }
     
 }
