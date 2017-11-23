@@ -23,25 +23,32 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        //poziv funkcije za pokretanje kockica
+        zavrtiKockice()
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
         //Gumb
     @IBAction func rollButtonPressed(_ sender: UIButton) {
-        
+        //poziv funkcije za pokretanje kockica
+        zavrtiKockice()
+    }
+        //funkcija s kojom vrtim kockice
+    func zavrtiKockice() {
         //dodjeljivanje slucajnog broja varijabli
         randomDiceIndex2 = Int(arc4random_uniform(6))
         
-        //generiranje slučajnog broja za kockicu
+        //generiranje slucajnog broja za kockicu (skraceno)
         diceImageView1.image = UIImage(named: diceArray[Int(arc4random_uniform(6))])
         
-        //generiranje slučajnog broja kroz varijalbu
+        //generiranje slucajnog broja kroz varijalbu
         diceImageView2.image = UIImage(named: diceArray[randomDiceIndex2])
     }
-    
+        //pokretanje kockica na zavrsetak tresnje telefona
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        zavrtiKockice()
+    }
 }
 
