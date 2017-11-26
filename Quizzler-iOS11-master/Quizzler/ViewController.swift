@@ -29,7 +29,7 @@ class ViewController: UIViewController {
 
     @IBAction func answerPressed(_ sender: AnyObject) {
             // ako je odabran odgovor sa tag-om 1
-            // u ovom slucaju "true"
+            // u ovom slucaju "true" 
         if sender.tag == 1 {
             pickedAnswer = true
         }
