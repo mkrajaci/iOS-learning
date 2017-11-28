@@ -13,7 +13,8 @@ class QuestionBank {
     var list = [Question]()
     
     init() {
-        // Stvaranje pitanja i dodavanje listi
+        // item je tipa Question sa parametrima text i correctAnswer
+        //Stvaranje pitanja i dodavanje listi
         let item = Question(text: "Valentine\'s day is banned in Saudi Arabia.", correctAnswer: true)
         
         // Dodavanje pitanja listi
