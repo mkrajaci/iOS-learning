@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-        // deklaracija varilabli
+            // deklaracija varilabli
     let allQuestions = QuestionBank()
     var pickedAnswer : Bool = false
     var questionNumber : Int = 0
@@ -38,7 +38,6 @@ class ViewController: UIViewController {
         else if sender.tag == 2 {
             pickedAnswer = false
         }
-        
         checkAnswer()
         questionNumber += 1
         nextQuestion()
@@ -51,7 +50,6 @@ class ViewController: UIViewController {
             // popunjavanje progress bara podjelili smo je na 13 dijelova
             // i svaki taj dio povecavamo pomocu brojaca pitanja (naravno + 1 jer ide od 0)
         progressBar.frame.size.width = (view.frame.size.width / 13) * CGFloat(questionNumber + 1)
-      
     }
     
     func nextQuestion() {
@@ -73,14 +71,18 @@ class ViewController: UIViewController {
             alert.addAction(restartAction)
             present(alert, animated: true, completion: nil)
         }
-
     }
     
     func checkAnswer() {
             // usporedba odabranog odgovora sa tocnim odgovorom
-            // i pocecaj rezultat
+            // i na skocnom prozoru HUD (head up display) prikazuje tocam ili netocan odabir
+            // u slucaju tocnog odgovora povecava rezultat za 1
         if pickedAnswer == allQuestions.list[questionNumber].answer {
+            ProgressHUD.showSuccess("Ispravan odgovor")
             score += 1
+        }
+        else {
+            ProgressHUD.showError("Netocan odgovor")
         }
     }
     
