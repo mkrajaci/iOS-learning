@@ -21,7 +21,7 @@ class Question {
     let questionText : String
     let answer : Bool
     
-        // način popunjavanja klasem gdje ce se koji podatak upisivati
+        // nacin popunjavanja klase gdje ce se koji podatak upisivati
         // Initializer odredjuje sto ce se dogoditi
         // kada se kreira novi objekt i klase Question
     init(text: String, correctAnswer: Bool) {
