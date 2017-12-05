@@ -25,7 +25,9 @@ class ViewController: UIViewController {
     let answer3b = "It\'s him or me! You take the knife and stab him."
     
     let story4 = "What? Such a cop out! Did you know traffic accidents are the second leading cause of accidental death for most adult age groups?"
+    
     let story5 = "As you smash through the guardrail and careen towards the jagged rocks below you reflect on the dubious wisdom of stabbing someone while they are driving a car you are in."
+    
     let story6 = "You bond with the murderer while crooning verses of \"Can you feel the love tonight\". He drops you off at the next town. Before you go he asks you if you know any good places to dump bodies. You reply: \"Try the pier.\""
     
         // UI Elements linked to the storyboard
@@ -39,14 +41,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prica1()
-        
     }
         // Akcija koja se zbiva prilikom pritiska jednog od gumbiju
     @IBAction func buttonPressed(_ sender: UIButton) {
     
         // Uvjeti po kojima igra napreduje kroz pricu
-        
-        if sender.tag == 1 && storyIndex == 1 {
+        if sender.tag == 1 && (storyIndex == 1 || storyIndex == 2) {
             prica3()
             storyIndex = 3
         }
@@ -63,10 +63,6 @@ class ViewController: UIViewController {
             storyTextView.text = story5
             topButton.isHidden = true
             bottomButton.isHidden = true
-        }
-        else if sender.tag == 1 && storyIndex == 2 {
-            prica3()
-            storyIndex = 3
         }
         else if sender.tag == 2 && storyIndex == 2 {
             storyTextView.text = story4
