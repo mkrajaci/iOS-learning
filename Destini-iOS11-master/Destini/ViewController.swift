@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    // Our strings
+        // tekstovi prica
     let story1 = "Your car has blown a tire on a winding road in the middle of nowhere with no cell phone reception. You decide to hitchhike. A rusty pickup truck rumbles to a stop next to you. A man with a wide brimmed hat with soulless eyes opens the passenger door for you and asks: \"Need a ride, boy?\"."
     let answer1a = "I\'ll hop in. Thanks for the help!"
     let answer1b = "Better ask him if he\'s a murderer first."
@@ -34,6 +34,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var topButton: UIButton!         // Has TAG = 1
     @IBOutlet weak var bottomButton: UIButton!      // Has TAG = 2
     @IBOutlet weak var storyTextView: UILabel!
+    @IBOutlet weak var resstartButton: UIButton!
+    
         // Indeks napredka price
     var storyIndex = 1
     
@@ -58,23 +60,45 @@ class ViewController: UIViewController {
             storyTextView.text = story6
             topButton.isHidden = true
             bottomButton.isHidden = true
+            storyIndex = 6
         }
         else if sender.tag == 2 && storyIndex == 3 {
             storyTextView.text = story5
             topButton.isHidden = true
             bottomButton.isHidden = true
+            storyIndex = 5
         }
         else if sender.tag == 2 && storyIndex == 2 {
             storyTextView.text = story4
             topButton.isHidden = true
             bottomButton.isHidden = true
+            storyIndex = 4
+        }
+        // kada igra dode do kraja pokazuje restart gumb
+        if storyIndex == 4 || storyIndex == 5 || storyIndex == 6 {
+            resstartButton.isHidden = false
         }
     }
-
+    
+        // na pritisak restart gumba pokrece igru iz pocetka
+    @IBAction func restartPressed(_ sender: UIButton) {
+        restart()
+    }
+    
+        // restart igre
+    func restart() {
+        resstartButton.isHidden = true
+        storyIndex = 1
+        prica1()
+        topButton.isHidden = false
+        bottomButton.isHidden = false
+    }
+    
     func prica1() {
         storyTextView.text = story1
         topButton.setTitle(answer1a, for: .normal)
         bottomButton.setTitle(answer1b, for: .normal)
+        resstartButton.isHidden = true
     }
     
     func prica2() {
